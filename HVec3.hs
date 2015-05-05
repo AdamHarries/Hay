@@ -25,6 +25,9 @@ instance Num HVec3 where
 dot :: HVec3 -> HVec3 -> Double
 dot (HVec3 a b c) (HVec3 x y z) = (a * x) + (b * y) + (z * c)
 
+(∘) :: HVec3 -> HVec3 -> Double
+(∘) (HVec3 a b c) (HVec3 x y z) = (a * x) + (b * y) + (z * c)
+
 -- Scalar division
 ($/) :: HVec3 -> Double -> HVec3
 ($/) (HVec3 a b c) (s) = HVec3 (a/s) (b/s) (c/s)

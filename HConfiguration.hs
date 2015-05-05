@@ -6,7 +6,14 @@ import HLight
 
 data HRenderSettings = HRenderSettings {
   camera :: HCamera, 
-  renderPlane :: HRenderPlane
+  renderWidth :: Int,
+  renderHeight :: Int,
+  maxRayDepth :: Int,
+  ambientLightingEnabled :: Bool
+
+  -- TODO: antialiasing
+  --antiAliasType       m_antiAliasType;
+  --antiAliasQuality    m_antiAliasQuality;
 }
 
 data HCamera = HCamera {
@@ -17,17 +24,15 @@ data HCamera = HCamera {
 } deriving (Show)
 
 data HRenderPlane = HRenderPlane {
-  renderWidth :: Double,
-  renderHeight :: Double, 
-  imagePlaneWidth :: Double,
-  imagePlaneHeight :: Double,
-  imagePlaneX :: HVec3,
-  imagePlaneY :: HVec3,
-  aspectRatio :: Double
+  renderWidth :: Int,
+  renderHeight :: Int,
+  imageData :: [[HColour]]
 }
 
 data HWorld = HWorld {
   objects :: [HObject],
   lights :: [HLight],
-  backgroundColour :: HColour
+  backgroundColour :: HColour,
+  ambientLightingColour :: HColour,
+  ambientLightingIntensity :: Double
 }

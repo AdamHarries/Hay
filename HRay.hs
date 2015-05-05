@@ -6,5 +6,6 @@ data HRay = HRay {
   direction :: HVec3
 } deriving (Show, Eq)
 
-
-at (HRay o d) t = o + (d $* t)
+-- project a ray for distance units, and the the point at the end
+at :: HRay -> Double -> HVec3
+at (HRay origin direction) distance = origin + (direction $* distance)
